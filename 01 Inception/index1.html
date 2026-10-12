@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+        <h1>Hello World! React</h1> 
+        <!-- this will be replaced by the React component or React.render(root) -->
+    </div>
+    <!-- // this is how we injected react in HTML for CDN react. -->
+    <script
+      crossorigin  
+      src="https://unpkg.com/react@18/umd/react.development.js" 
+    ></script> <!-- // this is the code file of react/ code file of react framework -->
+    <!-- this crossorigin attribute is used to enable cross-origin requests. -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script> <!-- // this is the react library which is used for DOM Operations ( to render the react code in the browser.) -->
+
+    <!-- <script>
+        const heading = React.createElement('h1', {}, 'Hello World! React');
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(heading);
+    </script> -->
+
+    <!-- by using App.js -->
+
+    <script src="App.js"></script>
+    
+    <!-- The order of the scripts is important. The React library should be loaded before the App.js file. -->
+
+  </body>
+</html>
+
+
+// Why react is a library and not a framework?
+React is considered a library rather than a framework because it focuses primarily on the view layer of an application. 
+It provides a way to build user interfaces by creating reusable components, 
+but it does not dictate the overall structure or architecture of an application. 
+In contrast, a framework typically provides a more comprehensive set of tools and 
+conventions for building an entire application, including routing, state management, 
+and other features. React allows developers to choose their own libraries and tools for these additional aspects, 
+making it more flexible and modular.  
