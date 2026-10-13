@@ -1,0 +1,53 @@
+What is npm ?  npmjs.com 
+
+npm is node package manager is wrong.
+npm does not stand for node package manager. npm does not have a full form.
+npm manages the packages. 
+
+Them what is npm?
+
+npm is a package manager or a standared repositories
+All kind of packages are hosted in npm
+
+npm init
+
+we got a file package.json
+packages = dependencies
+bundeler = help us to bundle all the code for the production {webpack, vite, parcel}
+It have all the mandatory dependencies.
+
+we are going to use parcel by the help of parcel.
+
+npm install -D parcel (D = dev)
+
+we got a new file package-lock.json 
+  it is a configration of package of npm, it keep track of what version of package is install in or system
+  it keep track of all the package version installed.
+"dependencies": {
+    "parcel": "^2.16.4" // ^ => this is caret, this show that if any update are available then it will auto update. minor update.
+  }           "~2.16.4" // ^ => this tilde , this will auto update the major update
+
+^ this is prefred
+
+We also got one folder named node_modules.
+What is this node modules?
+
+Node Modules contain all the code that we fetch from npm.
+It contains dependencies of dependencies which is known as transitive dependencies
+
+To run this.
+
+npx parcel (index.html)
+to execute any package we use npx
+
+Parcel
+  
+dev build
+local server
+HMR = Hot Module Replacement (Auto refresh web page)
+File whatching Algorithm - written in c++,
+Caching - Faster Build
+Image Optimization
+Bundling
+Compress
+Consistent hashing
