@@ -7,8 +7,10 @@ const API_URL =
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [searchRestaurants, setSearchRestaurants] = useState("");
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -39,6 +41,7 @@ const Body = () => {
           });
 
         setRestaurants(restaurantData);
+        setFilteredRestaurants(restaurantData);
       } catch (fetchError) {
         setError(fetchError.message);
       } finally {
@@ -63,15 +66,32 @@ const Body = () => {
       </div>
     );
   if (error) return <p role="alert">{error}</p>;
-  if (restaurants.length === 0) return <p>No restaurants were returned.</p>;
+  if (restaurants.length === 0) return <p>No restaurants were returned.</p>; // Conditional rendering for empty restaurant list
+
+  const handleSearch = () => {
+    console.log(searchRestaurants);
+    const filteredRest = restaurants.filter((restaurant) =>
+      restaurant.name.toLowerCase().includes(searchRestaurants.toLowerCase())
+    );
+    setFilteredRestaurants(filteredRest);
+  }
+
+  const changeRestaurants = (event) => {
+    setSearchRestaurants(event.target.value);
+  }
 
   return (
     <div className="body">
       <div className="search-filter-container">
-        <div className="search-bar">Search</div>
+        <div className="search">
+          <input type="text" className="search-box" value={searchRestaurants} onChange={changeRestaurants} />
+          <button className="search-bar" onClick={handleSearch}>Search</button>
+        </div>
+        
+        <button className="filter-btn" >Filter</button>
       </div>
       <div className="res-container">
-        {restaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <RestaurantCard
             key={restaurant.id}
             img={restaurant.img}
